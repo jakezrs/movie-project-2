@@ -37,7 +37,7 @@ class MovieApiController extends AbstractController
     #[Route('/api/movies/{id}', name: 'api_movie_detail')]
     public function getMovieDetail(int $id): JsonResponse
     {
-        $movie = $this->movieService->getMovieDetails($id);
+        $movie = $this->movieService->getMovieDetailsFromBdd($id);
 
         return $this->json($movie);
     }

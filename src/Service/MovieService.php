@@ -65,13 +65,21 @@ class MovieService
         return $response->toArray();
     }
 
-    public function getMovieDetailsFromBdd($id)
+    public function getMovieDetailsFromBdd($id): array
     {
-        $movie = $this->getDoctrine()->getRepository(Movie::class)->find($id);
+        $movie = $this->entityManager->getRepository(Movie::class)->findByApiId($id);
 
-        $response = new JsonResponse($response, 200);
+        if (!$movie) {
+            return new JsonResponse(['error' => 'Movie not found'], Response::HTTP_NOT_FOUND);
+        }
 
-        return $response;
+        return [
+            'id' => $movie[0]->getId(),
+            'title' => $movie[0]->getTitle(),
+            'overview' => $movie[0]->getOverview(),
+            'release_date' => $movie[0]->getReleaseDate(),
+            'poster_path' => $movie[0]->getPosterPath(),
+        ];
     }
 
     public function addMovies(string $timeWindow)
