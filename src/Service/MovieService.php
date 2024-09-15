@@ -19,7 +19,7 @@ class MovieService
     {
         $response = $this->client->request(
             'GET',
-            'https://api.themoviedb.org/3/trending/movie/day',
+            'https://api.themoviedb.org/3/trending/movie/{timeWindow}',
             [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $this->apiKey
