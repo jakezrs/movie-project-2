@@ -1,3 +1,15 @@
 body {
     background-color: skyblue;
 }
+
+button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+  
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

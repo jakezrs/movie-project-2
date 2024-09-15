@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-function TrendingMovies({ timeWindow = 'day' }) {
+function TrendingMovies() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [timeWindow, setTimeWindow] = useState('day');
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
@@ -19,6 +20,20 @@ function TrendingMovies({ timeWindow = 'day' }) {
   return (
     <div>
       <h1>Films tendances ({timeWindow === 'day' ? 'Aujourd\'hui' : 'Ce mois-ci'})</h1>
+      <div>
+        <button 
+          onClick={() => setTimeWindow('day')} 
+          disabled={timeWindow === 'day'}
+        >
+          Today
+        </button>
+        <button 
+          onClick={() => setTimeWindow('week')} 
+          disabled={timeWindow === 'week'}
+        >
+          This Month
+        </button>
+      </div>
       {loading ? (
         <p>Loading...</p>
       ) : (
