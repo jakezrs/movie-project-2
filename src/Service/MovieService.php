@@ -39,7 +39,7 @@ class MovieService
     {
         $response = $this->httpClient->request(
             'GET',
-            'https://api.themoviedb.org/3/trending/movie/' . $timeWindow,
+            'https://api.themoviedb.org/3/trending/movie/' . $timeWindow . '?language=fr-FR',
             [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $this->apiKey
@@ -54,7 +54,7 @@ class MovieService
     {
         $response = $this->httpClient->request(
             'GET',
-            'https://api.themoviedb.org/3/movie/' . $id,
+            'https://api.themoviedb.org/3/movie/' . $id . '?language=fr-FR',
             [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $this->apiKey

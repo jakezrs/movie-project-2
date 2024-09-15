@@ -17,10 +17,11 @@ function MovieDetail({ movieId }) {
 
   return (
     <div>
-      <h2>{movie.title}</h2>
+      <h2>Titre : {movie.title}</h2>
+      <h3>Titre original : {movie.original_title}</h3>
       <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-      <p>{movie.overview}</p>
-      <p>Date de sortie: {movie.release_date}</p>
+      <p>Description : {movie.overview}</p>
+      <p>Date de sortie : {movie.release_date}</p>
     </div>
   );
 }
