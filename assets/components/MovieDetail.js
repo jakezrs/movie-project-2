@@ -7,6 +7,7 @@ function MovieDetail({ movieId }) {
     const fetchMovie = async () => {
       const response = await fetch(`/api/movies/${movieId}`);
       const data = await response.json();
+      console.log(data)
       setMovie(data);
     };
 

@@ -11,6 +11,7 @@ function TrendingMovies() {
       setLoading(true);
       const response = await fetch(`/api/movies/trending/${timeWindow}`);
       const data = await response.json();
+      console.log(data);
       setMovies(data);
       setLoading(false);
     };
@@ -21,7 +22,7 @@ function TrendingMovies() {
   return (
     <div>
       <SearchMovies/>
-      <h2>Films tendances ({timeWindow === 'day' ? 'Aujourd\'hui' : 'Ce mois-ci'})</h2>
+      <h2>Films tendances ({timeWindow === 'day' ? 'Aujourd\'hui' : 'Cette semaine'})</h2>
       <div>
         <button 
           onClick={() => setTimeWindow('day')} 
@@ -33,7 +34,7 @@ function TrendingMovies() {
           onClick={() => setTimeWindow('week')} 
           disabled={timeWindow === 'week'}
         >
-          Ce mois-ci
+          Cette semaine
         </button>
       </div>
       {loading ? (
@@ -43,13 +44,10 @@ function TrendingMovies() {
           {movies.map(movie => (
               <div key={movie.id} style={{ display: 'inline-block', marginRight: '20px' }}>
                 <a href={`/movies/${movie.id}`}>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                    alt={movie.title}
-                  />
+                <img src={`https://image.tmdb.org/t/p/w300${movie.posterPath}`} alt={movie.title} />
                 </a>
               <h3>{movie.title}</h3>
-              <p>{movie.release_date}</p>
+              <p>{movie.releaseDate}</p>
             </div>
           ))}
         </div>

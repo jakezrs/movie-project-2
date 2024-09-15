@@ -35,6 +35,37 @@ class MovieService
         return $response->toArray();
     }
 
+    public function getTrendingMoviesFromBdd(string $timeWindow): array
+    {
+        $qb = $this->entityManager->createQueryBuilder('m');
+        $qb
+            ->select('m')
+            ->from(Movie::class, 'm')
+            ->where('m.timeWindow = :timeWindow')
+            ->setParameter('timeWindow', $timeWindow);
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
+    public function getMovieDetailsFromBdd($id): array
+    {
+        $movie = $this->entityManager->getRepository(Movie::class)->findById($id);
+
+        if (!$movie) {
+            return new JsonResponse(['error' => 'Movie not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        return [
+            'id' => $movie[0]->getId(),
+            'title' => $movie[0]->getTitle(),
+            'original_title' => $movie[0]->getOriginalTitle(),
+            'overview' => $movie[0]->getOverview(),
+            'release_date' => $movie[0]->getReleaseDate(),
+            'poster_path' => $movie[0]->getPosterPath(),
+        ];
+    }
+
+    /*
     public function getTrendingMovies(string $timeWindow)
     {
         $response = $this->httpClient->request(
@@ -65,24 +96,6 @@ class MovieService
         return $response->toArray();
     }
 
-    public function getMovieDetailsFromBdd($id): array
-    {
-        $movie = $this->entityManager->getRepository(Movie::class)->findByApiId($id);
-
-        if (!$movie) {
-            return new JsonResponse(['error' => 'Movie not found'], Response::HTTP_NOT_FOUND);
-        }
-
-        return [
-            'id' => $movie[0]->getId(),
-            'title' => $movie[0]->getTitle(),
-            'original_title' => $movie[0]->getOriginalTitle(),
-            'overview' => $movie[0]->getOverview(),
-            'release_date' => $movie[0]->getReleaseDate(),
-            'poster_path' => $movie[0]->getPosterPath(),
-        ];
-    }
-
     public function addMovies(string $timeWindow)
     {
         $trendingMovies = $this->getTrendingMovies($timeWindow);
@@ -110,4 +123,5 @@ class MovieService
 
         return new JsonResponse($movie, 201);
     }
+    */
 }
