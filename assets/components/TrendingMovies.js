@@ -19,19 +19,19 @@ function TrendingMovies() {
 
   return (
     <div>
-      <h1>Films tendances ({timeWindow === 'day' ? 'Aujourd\'hui' : 'Ce mois-ci'})</h1>
+      <h2>Films tendances ({timeWindow === 'day' ? 'Aujourd\'hui' : 'Ce mois-ci'})</h2>
       <div>
         <button 
           onClick={() => setTimeWindow('day')} 
           disabled={timeWindow === 'day'}
         >
-          Today
+          Aujourd'hui
         </button>
         <button 
           onClick={() => setTimeWindow('week')} 
           disabled={timeWindow === 'week'}
         >
-          This Month
+          Ce-mois-ci
         </button>
       </div>
       {loading ? (
