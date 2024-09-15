@@ -47,7 +47,18 @@ class MovieService
             ]
         );
 
-        return $response->toArray();
+        $response = new JsonResponse($dash, 200);
+
+        return $response;
+    }
+
+    public function getMovieDetailsFromBdd($id)
+    {
+        $movie = $this->getDoctrine()->getRepository(Movie::class)->find($id);
+
+        $response = new JsonResponse($dash, 200);
+
+        return $response;
     }
 
     public function addMovies(string $timeWindow)

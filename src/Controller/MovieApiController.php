@@ -19,7 +19,7 @@ class MovieApiController extends AbstractController
     #[Route('/api/movies/trending/{timeWindow}', name: 'api_movies_trending')]
     public function getTrendingMovies($timeWindow): JsonResponse
     {
-        $movies = $this->movieService->addMovies($timeWindow);
+        $movies = $this->movieService->getTrendingMovies($timeWindow);
 
         return $this->json($movies['results']);
     }
