@@ -35,7 +35,7 @@ function TrendingMovies() {
         </button>
       </div>
       {loading ? (
-        <p>Loading...</p>
+        <p>Chargement...</p>
       ) : (
         <div className="movie-grid">
           {movies.map(movie => (
