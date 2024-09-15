@@ -9,7 +9,7 @@ function SearchMovies() {
     event.preventDefault();
     setLoading(true);
 
-    const response = await fetch(`/api/search/movie?query=${query}`);
+    const response = await fetch(`/api/movies/search?query=${query}`);
     const data = await response.json();
     setMovies(data.results);
     setLoading(false);
@@ -25,7 +25,7 @@ function SearchMovies() {
           value={query} 
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <button type="submit">Rechercher</button>
       </form>
 
       {loading ? (

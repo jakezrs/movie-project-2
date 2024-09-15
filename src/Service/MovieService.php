@@ -20,7 +20,22 @@ class MovieService
         $this->entityManager = $entityManager;
     }
 
-    public function getTrendingMovies($timeWindow)
+    public function searchMovies(string $query)
+    {
+        $response = $this->httpClient->request(
+            'GET',
+            'https://api.themoviedb.org/3/search/movie?query=' . $query,
+            [
+                'headers' => [
+                    'Authorization' => 'Bearer ' . $this->apiKey
+                ]
+            ]
+        );
+
+        return $response->toArray();
+    }
+
+    public function getTrendingMovies(string $timeWindow)
     {
         $response = $this->httpClient->request(
             'GET',
@@ -35,7 +50,7 @@ class MovieService
         return $response->toArray();
     }
 
-    public function getMovieDetails($id)
+    public function getMovieDetails(int $id)
     {
         $response = $this->httpClient->request(
             'GET',
