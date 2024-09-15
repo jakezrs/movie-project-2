@@ -76,6 +76,7 @@ class MovieService
         return [
             'id' => $movie[0]->getId(),
             'title' => $movie[0]->getTitle(),
+            'original_title' => $movie[0]->getOriginalTitle(),
             'overview' => $movie[0]->getOverview(),
             'release_date' => $movie[0]->getReleaseDate(),
             'poster_path' => $movie[0]->getPosterPath(),
