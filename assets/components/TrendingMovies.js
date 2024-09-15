@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SearchMovies from './SearchMovies';
 
 function TrendingMovies() {
   const [movies, setMovies] = useState([]);
@@ -20,6 +21,7 @@ function TrendingMovies() {
 
   return (
     <div>
+      <SearchMovies/>
       <h2>Films tendances ({timeWindow === 'day' ? 'Aujourd\'hui' : 'Ce mois-ci'})</h2>
       <div>
         <button 
