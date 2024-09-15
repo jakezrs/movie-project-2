@@ -31,10 +31,10 @@ function SearchMovies() {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="movie-grid">
+        <div style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
           {movies.length > 0 ? (
             movies.map(movie => (
-              <div key={movie.id} className="movie-card">
+              <div key={movie.id} style={{ display: 'inline-block', marginRight: '20px' }}>
                 <a href={`/movies/${movie.id}`}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

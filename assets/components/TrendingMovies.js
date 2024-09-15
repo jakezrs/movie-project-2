@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import SearchMovies from './SearchMovies';
 
 function TrendingMovies() {
@@ -34,15 +33,15 @@ function TrendingMovies() {
           onClick={() => setTimeWindow('week')} 
           disabled={timeWindow === 'week'}
         >
-          Ce-mois-ci
+          Ce mois-ci
         </button>
       </div>
       {loading ? (
         <p>Chargement...</p>
       ) : (
-        <div className="movie-grid">
+        <div style={{ whiteSpace: 'nowrap', overflowX: 'auto' }}>
           {movies.map(movie => (
-            <div key={movie.id} className="movie-card">
+              <div key={movie.id} style={{ display: 'inline-block', marginRight: '20px' }}>
                 <a href={`/movies/${movie.id}`}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
