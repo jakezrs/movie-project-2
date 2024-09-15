@@ -44,4 +44,57 @@ class MovieService
 
         return $response->toArray();
     }
+
+    public function addMovies()
+    {
+        $movies = $this->getMovies();
+
+        $response = new JsonResponse($this->persistMovies($movies), 200);
+
+        return $response;
+    }
+
+    public function getMovies()
+    {
+        try {
+            $response = $this->httpClient->request(
+                'GET',
+                'https://api.themoviedb.org/3/movie/' . $id,
+                [
+                    'headers' => [
+                        'Authorization' => 'Bearer ' . $this->apiKey
+                    ]
+                ]
+            );
+        } catch (BadResponseException $ex) {
+            $response = $ex->getResponse();
+            $jsonBody = $response->getBody()->getContents();
+
+            return new JsonResponse(json_decode($jsonBody), 404);
+        }
+
+        $jsonResponse = json_decode($res->getBody()->getContents());
+
+        return $jsonResponse;
+    }
+
+    public function persistMovies($jsonResponse)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        foreach ($jsonResponse->results as $result) {
+            $movie = new Movie();
+
+            $movie->setTitle($result->title);
+            $movie->setPosterPath($result->poster_path);
+            $movie->setOverview($result->overview);
+            $movie->setReleaseDate($result->release_date);
+
+            $em->persist($movie);
+        }
+
+        $em->flush();
+
+        return new JsonResponse($movie, 201);
+    }
 }
