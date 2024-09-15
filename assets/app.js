@@ -1,10 +1,15 @@
-import './bootstrap.js';
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
+//import './bootstrap.js';
 import './styles/app.css';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+const App = () => {
+    return (
+        <div>
+            <h1>Bienvenue sur React 18 dans Symfony 7</h1>
+        </div>
+    );
+};
+
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);
