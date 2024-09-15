@@ -47,7 +47,8 @@ class ImportMoviesCommand extends Command
             if (!$existingMovie) {
                 // Create a new movie entity
                 $movie = new Movie();
-                $movie->setTitle($movieData['title'] ?? $movieData['name']);
+                $movie->setTitle($movieData['title'] ?? '');
+                $movie->setOriginalTitle($movieData['original_title'] ?? '');
                 $movie->setOverview($movieData['overview'] ?? '');
                 $movie->setReleaseDate($movieData['release_date'] ?? '');
                 $movie->setApiId($movieData['id']);
@@ -61,7 +62,7 @@ class ImportMoviesCommand extends Command
 
         $this->entityManager->flush();
 
-        $io->success(sprintf('Imported %d trending movies from the %s.', count($movies['results']), $timeWindow));
+        $io->success(sprintf('Imported trending movies from the %d.', $timeWindow));
 
         return Command::SUCCESS;
     }

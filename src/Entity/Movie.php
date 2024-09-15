@@ -31,6 +31,9 @@ class Movie
     #[ORM\Column]
     private ?int $apiId = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $originalTitle = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,6 +114,18 @@ class Movie
     public function setApiId(int $apiId): static
     {
         $this->apiId = $apiId;
+
+        return $this;
+    }
+
+    public function getOriginalTitle(): ?string
+    {
+        return $this->originalTitle;
+    }
+    
+    public function setOriginalTitle(string $originalTitle): static
+    {
+        $this->originalTitle = $originalTitle;
 
         return $this;
     }
