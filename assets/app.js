@@ -2,14 +2,11 @@
 import './styles/app.css';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import TrendingMovies from './components/TrendingMovies';
 
-const App = () => {
-    return (
-        <div>
-            <h1>Bienvenue sur React 18 dans Symfony 7</h1>
-        </div>
-    );
-};
-
-const root = createRoot(document.getElementById('root'));
-root.render(<App />);
+// Render TrendingMovies
+const trendingMoviesElement = document.getElementById('trending-movies');
+if (trendingMoviesElement) {
+  const trendingMoviesRoot = createRoot(trendingMoviesElement);
+  trendingMoviesRoot.render(<TrendingMovies />);
+}

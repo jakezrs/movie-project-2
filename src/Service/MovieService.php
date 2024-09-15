@@ -15,11 +15,11 @@ class MovieService
         $this->apiKey = $apiKey;
     }
 
-    public function getTrendingMovies()
+    public function getTrendingMovies($timeWindow)
     {
-        $response = $this->client->request(
+        $response = $this->httpClient->request(
             'GET',
-            'https://api.themoviedb.org/3/trending/movie/{timeWindow}',
+            'https://api.themoviedb.org/3/trending/movie/' . $timeWindow,
             [
                 'headers' => [
                     'Authorization' => 'Bearer ' . $this->apiKey
@@ -32,7 +32,7 @@ class MovieService
 
     public function getMovieDetails($id)
     {
-        $response = $this->client->request(
+        $response = $this->httpClient->request(
             'GET',
             'https://api.themoviedb.org/3/movie/' . $id,
             [
