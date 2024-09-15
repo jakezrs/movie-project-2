@@ -11,7 +11,7 @@ function SearchMovies() {
 
     const response = await fetch(`/api/movies/search?query=${query}`);
     const data = await response.json();
-    setMovies(data.results);
+    setMovies(data);
     setLoading(false);
   };
 
@@ -35,7 +35,7 @@ function SearchMovies() {
           {movies.length > 0 ? (
             movies.map(movie => (
               <div key={movie.id} className="movie-card">
-                <a href={`/movie/${movie.id}`}>
+                <a href={`/movies/${movie.id}`}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     alt={movie.title}

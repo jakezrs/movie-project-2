@@ -62,16 +62,14 @@ class MovieService
             ]
         );
 
-        $response = new JsonResponse($dash, 200);
-
-        return $response;
+        return $response->toArray();
     }
 
     public function getMovieDetailsFromBdd($id)
     {
         $movie = $this->getDoctrine()->getRepository(Movie::class)->find($id);
 
-        $response = new JsonResponse($dash, 200);
+        $response = new JsonResponse($response, 200);
 
         return $response;
     }

@@ -12,6 +12,7 @@ if (trendingMoviesElement) {
   trendingMoviesRoot.render(<TrendingMovies />);
 }
 
+// Render MovieDetail
 const movieDetailElement = document.getElementById('movie-detail');
 if (movieDetailElement) {
   const movieDetailRoot = createRoot(movieDetailElement);

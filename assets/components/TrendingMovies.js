@@ -43,10 +43,12 @@ function TrendingMovies() {
         <div className="movie-grid">
           {movies.map(movie => (
             <div key={movie.id} className="movie-card">
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt={movie.title}
-                />
+                <a href={`/movies/${movie.id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                </a>
               <h3>{movie.title}</h3>
               <p>{movie.release_date}</p>
             </div>
