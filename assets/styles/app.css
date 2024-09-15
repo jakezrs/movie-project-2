@@ -7,6 +7,7 @@ button {
     padding: 10px 15px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 10px;
 }
   
 button:disabled {
@@ -14,28 +15,9 @@ button:disabled {
     cursor: not-allowed;
 }
 
-.movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-  }
-  
-.movie-card {
-    background-color: #f4f4f4;
-    padding: 15px;
+input {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
     border-radius: 10px;
-    text-align: center;
-}
-  
-.movie-card img {
-    width: 100%;
-    border-radius: 10px;
-}
-  
-.movie-card h3 {
-    margin: 10px 0;
-}
-  
-.movie-card p {
-    color: #555;
 }
