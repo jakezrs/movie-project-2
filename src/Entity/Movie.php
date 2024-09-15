@@ -16,7 +16,7 @@ class Movie
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 1000)]
     private ?string $overview = null;
 
     #[ORM\Column(length: 255)]
@@ -27,6 +27,9 @@ class Movie
 
     #[ORM\Column(length: 255)]
     private ?string $timeWindow = null;
+
+    #[ORM\Column]
+    private ?int $apiId = null;
 
     public function getId(): ?int
     {
@@ -96,6 +99,18 @@ class Movie
     public function setTimeWindow(string $timeWindow): static
     {
         $this->timeWindow = $timeWindow;
+
+        return $this;
+    }
+
+    public function getApiId(): ?int
+    {
+        return $this->apiId;
+    }
+
+    public function setApiId(int $apiId): static
+    {
+        $this->apiId = $apiId;
 
         return $this;
     }
