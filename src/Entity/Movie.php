@@ -20,7 +20,13 @@ class Movie
     private ?string $overview = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $poster_path = null;
+    private ?string $releaseDate = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $posterPath = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $timeWindow = null;
 
     public function getId(): ?int
     {
@@ -58,14 +64,38 @@ class Movie
         return $this;
     }
 
-    public function getPosterPath(): ?string
+    public function getReleaseDate(): ?string
     {
-        return $this->poster_path;
+        return $this->releaseDate;
     }
 
-    public function setPosterPath(string $poster_path): static
+    public function setReleaseDate(string $releaseDate): static
     {
-        $this->poster_path = $poster_path;
+        $this->releaseDate = $releaseDate;
+
+        return $this;
+    }
+
+    public function getPosterPath(): ?string
+    {
+        return $this->posterPath;
+    }
+
+    public function setPosterPath(string $posterPath): static
+    {
+        $this->posterPath = $posterPath;
+
+        return $this;
+    }
+
+    public function getTimeWindow(): ?string
+    {
+        return $this->timeWindow;
+    }
+
+    public function setTimeWindow(string $timeWindow): static
+    {
+        $this->timeWindow = $timeWindow;
 
         return $this;
     }
