@@ -36,12 +36,12 @@ function SearchMovies() {
               <div key={movie.id} style={{ display: 'inline-block', marginRight: '20px' }}>
                 <a href={`/movies/${movie.id}`}>
                   <img
-                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+                    src={`https://image.tmdb.org/t/p/w300${movie.posterPath}`}
                     alt={movie.title}
                   />
                 </a>
                 <h3>{movie.title}</h3>
-                <p>{movie.release_date}</p>
+                <p>{movie.releaseDate}</p>
               </div>
             ))
           ) : (

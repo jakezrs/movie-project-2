@@ -11,7 +11,6 @@ function TrendingMovies() {
       setLoading(true);
       const response = await fetch(`/api/movies/trending/${timeWindow}`);
       const data = await response.json();
-      console.log(data);
       setMovies(data);
       setLoading(false);
     };

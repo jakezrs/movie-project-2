@@ -21,9 +21,10 @@ class MovieApiController extends AbstractController
     public function searchMovies(Request $request): JsonResponse
     {
         $query = $request->query->get('query');
-        $movies = $this->movieService->searchMovies($query);
+        
+        $movies = $this->movieService->searchMoviesFromBdd($query);
 
-        return $this->json($movies['results']);
+        return $this->json($movies);
 }
 
     #[Route('/api/movies/trending/{timeWindow}', name: 'api_movies_trending')]

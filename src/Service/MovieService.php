@@ -35,6 +35,19 @@ class MovieService
         return $response->toArray();
     }
 
+    public function searchMoviesFromBdd(string $query)
+    {
+        $qb = $this->entityManager->createQueryBuilder('m');
+
+        $qb
+            ->select('m')
+            ->from(Movie::class, 'm')
+            ->where('m.title LIKE :query')
+            ->setParameter('query', '%' . $query . '%');
+
+        return $qb->getQuery()->getArrayResult();
+    }
+
     public function getTrendingMoviesFromBdd(string $timeWindow): array
     {
         $qb = $this->entityManager->createQueryBuilder('m');
