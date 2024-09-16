@@ -1,4 +1,4 @@
-# Movie Project (Symfony 7|React 18)
+# Movie Project (Symfony 7 | React 18)
 
 This application uses Symfony to retrieve data from The Movie DB API, store it in a local database, and then displays the data using React.
 
@@ -17,19 +17,19 @@ npm run dev
 
 ## Built With
 
-1. [Symfony 7]
-2. [React 18]
-3. [Axios]
-4. [Docker with PostgreSQL BDD]
+* **Symfony 7**
+* **React 18**
+* **Axios**
+* **Docker with PostgreSQL BDD**
 
 ## Main dependencies
 
-* @symfony/webpack-encore to add Webpack in a Symfony Project
-* easycorp/easyadmin-bundle to create administration for the application
-* doctrine/orm to manage data between Doctrine and the BDD
-* symfony/http-client to request the Movie DB API
+* **@symfony/webpack-encore** to add Webpack in a Symfony Project
+* **easycorp/easyadmin-bundle** to create administration for the application
+* **doctrine/orm** to manage data between Doctrine and the BDD
+* **symfony/http-client** to request the Movie DB API
 
 ## To be done
-1. User authentification
-2. Administrator page
-3. Movie CRUD
+* **User authentification**
+* **Administrator page**
+* **Movie CRUD**
