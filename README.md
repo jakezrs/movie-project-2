@@ -15,6 +15,10 @@ bin/console app:import-movies week
 npm run dev
 ```
 
+## If you don't have access to Symfony Command
+
+Import ```movie-project_database_data.tar.zst``` in Docker with Extension **Volumes Backup & Share**
+
 ## Built With
 
 * **Symfony 7**
