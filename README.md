@@ -20,7 +20,7 @@ npm run dev
 * **Symfony 7**
 * **React 18**
 * **Axios**
-* **Docker with PostgreSQL BDD**
+* **Docker with PostgreSQL DB**
 
 ## Main dependencies
 
@@ -28,6 +28,16 @@ npm run dev
 * **easycorp/easyadmin-bundle** to create administration for the application
 * **doctrine/orm** to manage data between Doctrine and the BDD
 * **symfony/http-client** to request the Movie DB API
+
+## Documentation
+
+* https://react.dev/reference/react
+* https://symfony.com/doc/current/index.html
+* https://www.digitalocean.com/community/tutorials/react-axios-react
+* https://www.docker.com/blog/how-to-use-the-postgres-docker-official-image/
+* https://symfony.com/bundles/ux-react/current/index.html
+* https://www.cloudways.com/blog/symfony-react-using-webpack-encore/
+* https://www.dhiwise.com/post/how-to-fetch-and-display-data-from-api-in-react-js
 
 ## To be done
 * **User authentification**
