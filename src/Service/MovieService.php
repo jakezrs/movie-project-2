@@ -65,7 +65,7 @@ class MovieService
         ];
     }
 
-    /*
+    
     public function getTrendingMovies(string $timeWindow)
     {
         $response = $this->httpClient->request(
@@ -81,6 +81,7 @@ class MovieService
         return $response->toArray();
     }
 
+    /*
     public function getMovieDetails(int $id)
     {
         $response = $this->httpClient->request(
